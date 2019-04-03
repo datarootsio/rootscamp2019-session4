@@ -1,3 +1,5 @@
+"""Fancy Pansy Connexxion API example."""
+
 import hashlib
 from functools import lru_cache
 
@@ -10,17 +12,36 @@ import contexttimer as ct
 model_file = 'model.joblib'
 clf = joblib.load(model_file)
 
+
 @lru_cache()
 def get_model_hash():
+    """
+    Get SHA256 hash of model file.
+
+    :return: SHA256 hash
+    """
     # note, adjust for large files (read in chunks)
     with open(model_file, "rb") as f:
         return hashlib.sha256(f.read()).hexdigest()
 
+
 def get_git_commit():
+    """
+    Get current git commit hash.
+
+    :return: git commit hash
+    """
     repo = git.Repo(search_parent_directories=True)
     return repo.head.object.hexsha
 
+
 def predict(body):
+    """
+    Predict train delays.
+
+    :param body: the request body
+    :return: prediction response object
+    """
     with ct.Timer() as t:
         pred = clf.predict(body).tolist()
 
@@ -36,6 +57,7 @@ def predict(body):
     return resp
 
 
-app = connexion.App('Super Duper Fancy Pansy API', specification_dir='./openapi/')
+app = connexion.App('Super Duper Fancy Pansy API',
+                    specification_dir='./openapi/')
 app.add_api('super_duper_fancypansy_api.yaml')
 app.run(port=8080, debug=True)
