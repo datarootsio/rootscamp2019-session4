@@ -59,8 +59,12 @@ curl -X POST \
 ### Docker
 
 In the folder where the Dockerfile is => builds all the docker file
+
 ```docker build .```
+
+
 This creates a session name
+
 ```docker run -p 8080:8080 image-name```
 
 
