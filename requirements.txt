@@ -17,7 +17,7 @@ numpy==1.16.2
 openapi-spec-validator==0.2.6
 pathlib==1.0.1
 pi==0.1.2
-PyYAML==5.1
+PyYAML==5.4
 requests==2.21.0
 scikit-learn==0.20.0
 scipy==1.2.1
