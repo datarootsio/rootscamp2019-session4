@@ -13,7 +13,7 @@ itsdangerous==1.1.0
 Jinja2==2.10
 jsonschema==2.6.0
 MarkupSafe==1.1.1
-numpy==1.16.2
+numpy==1.22.0
 openapi-spec-validator==0.2.6
 pathlib==1.0.1
 pi==0.1.2
